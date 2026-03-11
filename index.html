@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Um Ano Nosso</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background:linear-gradient(180deg,#000,#1a1a1a,#2b0000);
+font-family:'Cinzel',serif;
+color:#e6e6e6;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+text-align:center;
+background:#0f0f0f;
+padding:40px;
+border-radius:10px;
+border:1px solid #5a0000;
+box-shadow:0 0 25px rgba(120,0,0,0.6);
+max-width:700px;
+width:90%;
+}
+
+h1{
+font-family:'UnifrakturCook',cursive;
+font-size:44px;
+margin-bottom:20px;
+color:#ddd;
+}
+
+.frase{
+font-size:18px;
+margin-bottom:20px;
+color:#bbb;
+}
+
+#contador{
+font-size:22px;
+background:#1a1a1a;
+padding:15px;
+border-radius:6px;
+margin-bottom:25px;
+border:1px solid #333;
+}
+
+.botao{
+background:#5a0000;
+color:white;
+border:none;
+padding:15px 30px;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.botao:hover{
+background:#7a0000;
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+justify-content:center;
+align-items:center;
+}
+
+.carta{
+background:#111;
+padding:35px;
+max-width:750px;
+max-height:85vh;
+overflow-y:auto;
+border-radius:10px;
+border:1px solid #5a0000;
+line-height:1.7;
+text-align:left;
+}
+
+.carta img{
+width:100%;
+border-radius:12px;
+margin-bottom:25px;
+}
+
+.fechar{
+margin-top:25px;
+padding:10px 20px;
+background:#5a0000;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Um Ano Nosso</h1>
+
+<div class="frase">
+o tempo continua passando, e o meu amor por você cresce.
+</div>
+
+<div id="contador"></div>
+
+<button class="botao" onclick="abrirCarta()">Abrir Carta</button>
+
+</div>
+
+<div class="modal" id="modal">
+
+<div class="carta">
+
+<img src="foto.webp">
+
+<p>Parece pouco quando eu falo assim, mas quando eu penso em tudo que aconteceu, parece muito mais.</p>
+
+<p>Às vezes eu lembro de como tudo começou meio estranho. Você tentou me dar um beijo e eu simplesmente te empurrei num caminhão. Como se isso já não fosse suficiente, eu ainda te dei um tapa. E você, completamente tranquilo, só disse que eu ia ter que dar um beijinho pra sarar. E eu respondi “Deus me livre”. Se alguém tivesse dito naquele momento que um ano depois eu estaria escrevendo isso pra você, eu provavelmente não ia acreditar.</p>
+
+<p>Mas então veio o dia 28 de fevereiro de 2025. Nosso primeiro selinho no carnaval da escola. A gente ainda não namorava, mas aquele momento ficou guardado em mim de um jeito estranho. Às vezes ele simplesmente aparece na minha cabeça... Lembro de você chorando na minha frente e depois (ou foi antes, não lembro) tu foi dançar na quadra como se nada tivesse acontecido.</p>
+
+<p>Depois veio o dia 20 de março. O dia em que você me pediu em namoro do seu próprio jeito. Nada exagerado, nada dramático. Você só disse que eu podia falar com você no próximo intervalo se eu realmente quisesse alguma coisa. E eu fui. Porque eu queria. E porque, no fundo, eu já sabia que queria você.</p>
+
+<p>Eu também lembro do dia em que te apresentei pra minha madrinha. Ela quase teve um treco na nossa frente, e eu nunca vou esquecer aquela cena. Mas, ao mesmo tempo, aquilo fez tudo parecer mais real.</p>
+
+<p>E claro, o dia 2 de maio. Nosso primeiro beijo de verdade. No escuro, no meio da rua, sem cenário bonito e tua bicicleta caindo em cima de tu. Só nós dois. E mesmo assim foi perfeito do nosso jeito.</p>
+
+<p>Tem muitas outras lembranças que eu poderia escrever aqui, mas talvez esse textinho não é suficiente para todas elas.</p>
+
+<p>O que eu quero que você saiba é simples: eu amo ser sua namorada. Amo poder dizer que você é meu. Amo a forma como você faz parte da minha vida agora.</p>
+
+<p>Talvez seja cedo para falar em “pra sempre”. Mas o que eu sei é que eu te amo com todas as minhas forças. E hoje, depois de um ano, eu ainda escolho você.</p>
+
+<p>E, se eu puder escolher, vou continuar escolhendo. Todos os dias.</p>
+
+<button class="fechar" onclick="fecharCarta()">Fechar</button>
+
+</div>
+</div>
+
+<script>
+
+function abrirCarta(){
+document.getElementById("modal").style.display="flex";
+}
+
+function fecharCarta(){
+document.getElementById("modal").style.display="none";
+}
+
+function atualizarContador(){
+
+const inicio = new Date("2025-03-20T00:00:00");
+const agora = new Date();
+
+let diff = agora - inicio;
+
+let dias = Math.floor(diff/(1000*60*60*24));
+let horas = Math.floor(diff/(1000*60*60)) % 24;
+let minutos = Math.floor(diff/(1000*60)) % 60;
+let segundos = Math.floor(diff/1000) % 60;
+
+document.getElementById("contador").innerHTML =
+`🖤 ${dias} dias ${horas}h ${minutos}m ${segundos}s juntos`;
+
+}
+
+setInterval(atualizarContador,1000);
+
+</script>
+
+</body>
+</html>
